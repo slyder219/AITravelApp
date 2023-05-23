@@ -1,0 +1,438 @@
+[
+  {
+    "type": "flight-offer",
+    "id": "1",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2023-06-19",
+    "lastTicketingDateTime": "2023-06-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT9H10M",
+        "segments": [
+          {
+            "departure": { "iataCode": "EWR", "at": "2023-06-19T21:50:00" },
+            "arrival": { "iataCode": "LHR", "at": "2023-06-20T08:45:00" },
+            "carrierCode": "6X",
+            "number": "188",
+            "aircraft": { "code": "777" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT5H55M",
+            "id": "5",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": { "iataCode": "LHR", "at": "2023-06-20T10:30:00" },
+            "arrival": { "iataCode": "MAD", "at": "2023-06-20T13:00:00" },
+            "carrierCode": "6X",
+            "number": "9931",
+            "aircraft": { "code": "320" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT1H30M",
+            "id": "6",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "EUR",
+      "total": "328.07",
+      "base": "283.00",
+      "fees": [
+        { "amount": "0.00", "type": "SUPPLIER" },
+        { "amount": "0.00", "type": "TICKETING" }
+      ],
+      "grandTotal": "328.07"
+    },
+    "pricingOptions": {
+      "fareType": ["PUBLISHED"],
+      "includedCheckedBagsOnly": true
+    },
+    "validatingAirlineCodes": ["6X"],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": { "currency": "EUR", "total": "328.07", "base": "283.00" },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "5",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          },
+          {
+            "segmentId": "6",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "2",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2023-06-19",
+    "lastTicketingDateTime": "2023-06-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT11H",
+        "segments": [
+          {
+            "departure": { "iataCode": "JFK", "at": "2023-06-19T20:00:00" },
+            "arrival": { "iataCode": "LHR", "at": "2023-06-20T08:05:00" },
+            "carrierCode": "6X",
+            "number": "172",
+            "aircraft": { "code": "744" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT7H5M",
+            "id": "1",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": { "iataCode": "LHR", "at": "2023-06-20T10:30:00" },
+            "arrival": { "iataCode": "MAD", "at": "2023-06-20T13:00:00" },
+            "carrierCode": "6X",
+            "number": "9931",
+            "aircraft": { "code": "320" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT1H30M",
+            "id": "2",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "EUR",
+      "total": "328.07",
+      "base": "283.00",
+      "fees": [
+        { "amount": "0.00", "type": "SUPPLIER" },
+        { "amount": "0.00", "type": "TICKETING" }
+      ],
+      "grandTotal": "328.07"
+    },
+    "pricingOptions": {
+      "fareType": ["PUBLISHED"],
+      "includedCheckedBagsOnly": true
+    },
+    "validatingAirlineCodes": ["6X"],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": { "currency": "EUR", "total": "328.07", "base": "283.00" },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "1",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          },
+          {
+            "segmentId": "2",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "3",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2023-06-19",
+    "lastTicketingDateTime": "2023-06-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT11H50M",
+        "segments": [
+          {
+            "departure": { "iataCode": "JFK", "at": "2023-06-19T18:00:00" },
+            "arrival": { "iataCode": "LHR", "at": "2023-06-20T06:00:00" },
+            "carrierCode": "6X",
+            "number": "3916",
+            "aircraft": { "code": "738" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT7H",
+            "id": "7",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "LHR",
+              "terminal": "3",
+              "at": "2023-06-20T08:30:00"
+            },
+            "arrival": {
+              "iataCode": "MAD",
+              "terminal": "1",
+              "at": "2023-06-20T11:50:00"
+            },
+            "carrierCode": "6X",
+            "number": "7100",
+            "aircraft": { "code": "343" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT2H20M",
+            "id": "8",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "EUR",
+      "total": "328.07",
+      "base": "283.00",
+      "fees": [
+        { "amount": "0.00", "type": "SUPPLIER" },
+        { "amount": "0.00", "type": "TICKETING" }
+      ],
+      "grandTotal": "328.07"
+    },
+    "pricingOptions": {
+      "fareType": ["PUBLISHED"],
+      "includedCheckedBagsOnly": true
+    },
+    "validatingAirlineCodes": ["6X"],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": { "currency": "EUR", "total": "328.07", "base": "283.00" },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "7",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          },
+          {
+            "segmentId": "8",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "4",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2023-06-19",
+    "lastTicketingDateTime": "2023-06-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT14H50M",
+        "segments": [
+          {
+            "departure": { "iataCode": "JFK", "at": "2023-06-19T15:00:00" },
+            "arrival": { "iataCode": "LHR", "at": "2023-06-19T23:58:00" },
+            "carrierCode": "6X",
+            "number": "9306",
+            "aircraft": { "code": "744" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT3H58M",
+            "id": "9",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "LHR",
+              "terminal": "3",
+              "at": "2023-06-20T08:30:00"
+            },
+            "arrival": {
+              "iataCode": "MAD",
+              "terminal": "1",
+              "at": "2023-06-20T11:50:00"
+            },
+            "carrierCode": "6X",
+            "number": "7101",
+            "aircraft": { "code": "343" },
+            "operating": { "carrierCode": "6X" },
+            "duration": "PT2H20M",
+            "id": "10",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "EUR",
+      "total": "328.07",
+      "base": "283.00",
+      "fees": [
+        { "amount": "0.00", "type": "SUPPLIER" },
+        { "amount": "0.00", "type": "TICKETING" }
+      ],
+      "grandTotal": "328.07"
+    },
+    "pricingOptions": {
+      "fareType": ["PUBLISHED"],
+      "includedCheckedBagsOnly": true
+    },
+    "validatingAirlineCodes": ["6X"],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": { "currency": "EUR", "total": "328.07", "base": "283.00" },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "9",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          },
+          {
+            "segmentId": "10",
+            "cabin": "BUSINESS",
+            "fareBasis": "J6XQSMIX",
+            "class": "J",
+            "includedCheckedBags": { "quantity": 8 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "5",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2023-06-19",
+    "lastTicketingDateTime": "2023-06-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT14H",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "JFK",
+              "terminal": "1",
+              "at": "2023-06-19T20:40:00"
+            },
+            "arrival": {
+              "iataCode": "CMN",
+              "terminal": "2",
+              "at": "2023-06-20T08:30:00"
+            },
+            "carrierCode": "AT",
+            "number": "201",
+            "aircraft": { "code": "789" },
+            "operating": { "carrierCode": "AT" },
+            "duration": "PT7H50M",
+            "id": "3",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "CMN",
+              "terminal": "1",
+              "at": "2023-06-20T12:50:00"
+            },
+            "arrival": {
+              "iataCode": "MAD",
+              "terminal": "4S",
+              "at": "2023-06-20T15:40:00"
+            },
+            "carrierCode": "AT",
+            "number": "9971",
+            "aircraft": { "code": "CRK" },
+            "duration": "PT1H50M",
+            "id": "4",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "EUR",
+      "total": "450.94",
+      "base": "233.00",
+      "fees": [
+        { "amount": "0.00", "type": "SUPPLIER" },
+        { "amount": "0.00", "type": "TICKETING" }
+      ],
+      "grandTotal": "450.94"
+    },
+    "pricingOptions": {
+      "fareType": ["PUBLISHED"],
+      "includedCheckedBagsOnly": true
+    },
+    "validatingAirlineCodes": ["AT"],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": { "currency": "EUR", "total": "450.94", "base": "233.00" },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "3",
+            "cabin": "ECONOMY",
+            "fareBasis": "QA0WAAMA",
+            "class": "Q",
+            "includedCheckedBags": { "quantity": 2 }
+          },
+          {
+            "segmentId": "4",
+            "cabin": "ECONOMY",
+            "fareBasis": "QA0WAAMA",
+            "class": "Q",
+            "includedCheckedBags": { "quantity": 2 }
+          }
+        ]
+      }
+    ]
+  }
+]
