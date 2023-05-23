@@ -4,8 +4,8 @@ import json
 
 
 class amaBase():
-    secret = "KaQ1vwdHt1qoo1Xg"
-    key = "OA1kI1wAG1U87REBGsmgGK3mF8isPd7a"
+    secret = ""
+    key = ""
 
     amadeus = Client(
         client_id= key,

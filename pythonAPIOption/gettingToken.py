@@ -9,8 +9,8 @@ def main():
         "Content-Type": "application/x-www-form-urlencoded"
     }
 
-    key = "OA1kI1wAG1U87REBGsmgGK3mF8isPd7a"
-    secret = "KaQ1vwdHt1qoo1Xg"
+    key = ""
+    secret = ""
 
     # Set the request body parameters
     data = {
