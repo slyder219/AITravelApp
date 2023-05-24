@@ -53,10 +53,15 @@ function displayFlightOptions(flightOptions){
         // grab arrival time from json and add to paragraph
         arrivalTime.textContent = `Arrival Time: ${option.itineraries[0].segments[0].arrival.at}`;
 
-        // create paragraph element to display airline
+        // create paragraph element to display airline business name
         const airline = document.createElement("p");
-        // grab airline from json and add to paragraph
-        airline.textContent = `Airline: ${option.itineraries[0].segments[0].carrierCode}`;
+        // save carrier code to variable
+        const carrierCode = option.itineraries[0].segments[0].carrierCode;
+        // make api call to get airline business name
+        fetch(`/airlines?carrierCode=${carrierCode}`)
+        .then(response => response.json()).
+        then(data => { airline.textContent = `Airline: ${data[0].businessName}`; }).
+        catch(error => { console.error(error); console.log("Error3"); });
 
         // create paragraph element to display flight number
         const flightNumber = document.createElement("p");

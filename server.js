@@ -20,6 +20,21 @@ app.get("/", (req, res) => {
   res.sendFile(filePath);
 })
 
+// Define carrier code to business name route
+app.get('/airlines', (req, res) => {
+  const carrierCode = req.query.carrierCode;
+  amadeus.referenceData.airlines.get({
+    airlineCodes: carrierCode,
+}).then(response => {
+  console.log("Here2");
+  res.json(response.data);
+}).catch(error => {
+  console.log("Error2");
+  console.error(error);
+  res.status(500).json({ error: 'An error occurred' });
+});
+});
+
 // Define flight search route 
 app.get("/flights", (req, res) => {
   const { origin, destination, date } = req.query;
