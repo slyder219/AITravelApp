@@ -4,8 +4,8 @@ const app = express();
 const Amadeus = require('amadeus');
 
 // set up Amadeus client credentials
-const key = "OA1kI1wAG1U87REBGsmgGK3mF8isPd7a";
-const secret = "KaQ1vwdHt1qoo1Xg";
+const key = process.env.AMADEUS_KEY;
+const secret = process.env.AMADEUS_SECRET;
 const amadeus = new Amadeus({
   clientId: key,
   clientSecret: secret,
