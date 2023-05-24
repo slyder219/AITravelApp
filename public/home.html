@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial.-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Flight Search</title>
+</head>
+
+<body>
+    <h1>Flight Search</h1>
+
+    <form id = "flightForm">
+        <label for="origin">Origin ( Ex: NYC ):</label>
+        <input type="text" id="origin" required>
+
+        <label for="destination">Destination ( Ex: LAX ):</label>
+        <input type="text" id="destination" required>
+
+        <label for="date">Date ( Ex: 2020-12-31 ):</label>
+        <input type="date" id="date" required>
+
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <div id="flightContainer"></div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
