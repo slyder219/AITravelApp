@@ -2,6 +2,7 @@
 
 // form submisison
 function handleFormSubmit(event){
+    console.log("Form submitted");
     event.preventDefault(); // Prevent default form submission
 
     const origin = document.getElementById("origin").ariaValueMax;
@@ -17,6 +18,7 @@ function handleFormSubmit(event){
     })
     .catch(error => {
         console.error(error);
+        console.log("Error2");
     });
 }
 

@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const Amadeus = require('amadeus');
 
@@ -13,6 +14,12 @@ const amadeus = new Amadeus({
 // Serve static files from directory
 app.use(express.static('public'));
 
+
+app.get("/", (req, res) => {
+  const filePath = path.join(__dirname, './public', 'home.html');
+  res.sendFile(filePath);
+})
+
 // Define flight search route 
 app.get("/flights", (req, res) => {
   const { origin, destination, date } = req.query;
@@ -25,6 +32,7 @@ app.get("/flights", (req, res) => {
     max: 10,
   })
     .then(response => {
+      console.log("Here1");
       res.json(response.data);
     })
     .catch(error => {
@@ -35,7 +43,7 @@ app.get("/flights", (req, res) => {
 });
 
 // Start the server
-const port = 5280;
+const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
