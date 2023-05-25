@@ -16,8 +16,9 @@ app.use(express.static('public'));
 
 // root route
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/pages/search.html");
+  res.sendFile(__dirname + "/public/pages/landing.html");
 });
+
 
 
 
