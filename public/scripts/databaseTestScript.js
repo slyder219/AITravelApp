@@ -5,16 +5,9 @@ form.addEventListener('submit', async (e) => {
 e.preventDefault(); // Prevent form submission
 
 // Get input elements by their IDs
-const abrEl = document.getElementById('abr');
-const countryEl = document.getElementById('country');
-const stateEl = document.getElementById('state');
-
-// Get the values from the input elements
-const abr = abrEl.value;
-const country = countryEl.value;
-const state = stateEl.value;
-
-
+const abr = document.getElementById('abr').value;
+const country = document.getElementById('country').value;
+const state = document.getElementById('state').value;
 
 try {
     // Send a POST request to the server
@@ -28,9 +21,9 @@ try {
 
     // Update the result element with a success message
     result.textContent = data.message;
-    abrEl.value = '';
-    countryEl.value = '';
-    stateEl.value = ''
+
+    // clear form 
+    form.reset();
 } catch (error) {
     console.error('Error:', error);
 
