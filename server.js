@@ -60,7 +60,8 @@ app.get("/flights", (req, res) => {
 });
 
 // Start the server
-const port = 3000;
+// define port from local var
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
