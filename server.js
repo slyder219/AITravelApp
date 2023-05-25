@@ -46,6 +46,7 @@ app.get("/flights", (req, res) => {
     destinationLocationCode: destination,
     departureDate: date,
     adults: 1,
+    travelClass: 'ECONOMY',
     max: 10,
   })
     .then(response => {
