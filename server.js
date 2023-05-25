@@ -14,11 +14,12 @@ const amadeus = new Amadeus({
 // Serve static files from directory
 app.use(express.static('public'));
 
-
+// root route
 app.get("/", (req, res) => {
-  const filePath = path.join(__dirname, './public', 'home.html');
-  res.sendFile(filePath);
-})
+  res.sendFile(__dirname + "/public/pages/search.html");
+});
+
+
 
 // Define carrier code to business name route
 app.get('/airlines', (req, res) => {
