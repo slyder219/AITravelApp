@@ -1,0 +1,15 @@
+{
+    "abr": {
+        "description": "All caps ex. NYC",
+        "type": "string"
+    },
+    "country" : {
+        "description": "Country name ex. USA",
+        "type": "string"
+    },
+    "state" : {
+        "description": "All caps ex. NYC",
+        "type": "string"
+    },
+    "required": ["abr", "country", "state"]
+}

@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const Amadeus = require('amadeus');
+const { newDocument } = require('./controllers/newDocCont.js');
+
 
 // set up Amadeus client credentials
 const key = process.env.AMADEUS_KEY;
@@ -14,13 +16,19 @@ const amadeus = new Amadeus({
 // Serve static files from directory
 app.use(express.static('public'));
 
+// set up body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // root route
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/pages/landing.html");
 });
 
-
-
+// Handle test post to database
+app.post("/testSave", (req, res) => {
+  newDocument(req, res);
+});
 
 // Define carrier code to business name route
 app.get('/airlines', (req, res) => {
