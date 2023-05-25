@@ -13,5 +13,5 @@
 ### In the future:
 
 - Will have mongoDB integrated (it's set up but it isn't actively used yet) 
-- Will have a user account management
+- Will have a user account management-- via passport and express-sessions. 
 - Will have personality testing to develop ai itineraries 
