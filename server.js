@@ -13,7 +13,7 @@ const { checkLogin } = require('./controllers/checkLoginCont.js')
 
 // set up sessions
 app.use(session({
-  secret: 'secret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
 }));
