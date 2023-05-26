@@ -5,29 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Login</title>
-        <link rel="stylesheet" href="styles/bulma.cs">
+        <link rel="stylesheet" href="styles/bulma.css">
     </head>
-    <div class="header">
-        <% if (loggedInBool) { %>
-            <p> <%= username %>, you are logged in.</p>
-        <% } else { %>
-            <p> You are not logged in.</p>
-        <% } %> 
-    </div>
+  
     <body>
-        <form id="loginForm" class="form container">
+        <%- include("partials/navbar") %>
 
-            <label for="username" class="label">Username</label>
-            <input id="username" type="text" class="input" required>
-
-            <label for="password" class="label">Password</label>
-            <input id="password" type="password" class="input" required>
-
-            <button type="submit" id="submit" class="button">Login</button>
-            <a href="/register" class="link">Register</a>
-
-        </form>
-        <p id="result" class="result form container">Result</p>
+          <form id="loginForm" class="form container">
+            <div class="field">
+              <label for="username" class="label">Username</label>
+              <div class="control">
+                <input id="username" type="text" class="input" required>
+              </div>
+            </div>
+          
+            <div class="field">
+              <label for="password" class="label">Password</label>
+              <div class="control">
+                <input id="password" type="password" class="input" required>
+              </div>
+            </div>
+          
+            <div class="field">
+              <div class="control">
+                <button type="submit" id="submit" class="button is-primary">Login</button>
+                <a href="/register" class="link">Register</a>
+              </div>
+            </div>
+          </form>
+          
+          <p id="result" class="result form container">Result</p>
+          
 
         <script src="scripts/loginScript.js"></script>
     </body>

@@ -6,24 +6,22 @@
     <link rel="stylesheet" href="styles/bulma.css">
     <title>Landing</title>
 </head>
-<div class="has-text-right">
-    <% if (loggedInBool) { %>
-        <p> <%= username %>, you are logged in.</p>
-    <% } else { %>
-        <p> You are not logged in.</p>
-    <% } %> 
-</div>
+
 <body>
+    
+    <%- include("partials/navbar") %>
+
+      
     <div class="container">
         <h1>Begin Your Odyssey</h1>
-        <button id="toSearch">Search</button>
-        <button id="testDatabase">Test Database</button>
+        <button class="button" id="toSearch">Search</button>
+        <button class="button" id="testDatabase">Test Database</button>
     </div>
     <div class='container'>
         <% if (loggedInBool) { %>
         <% } else { %>
-        <button id='login'>Login</button>
-        <button id="register">Register</button>
+        <button class="button" id='login'>Login</button>
+        <button class="button" id="register">Register</button>
         <% } %> 
 
     </div>

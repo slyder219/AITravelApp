@@ -10,6 +10,8 @@ const { handleRegister } = require('./controllers/newRegCont.js');
 const { checkLogin } = require('./controllers/checkLoginCont.js')
 const { isLoggedIn } = require('./controllers/checkSessionCont.js');
 
+
+
 //______________________________________________________________________________
 
 // set up ejs 
@@ -45,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 // root route
 app.get("/", (req, res) => {
   res.render("landing", { loggedInBool : req.session.loggedin,
-                          username : req.session.username })
+                          username : req.session.username});
 });
 
 //______________________________________________________________________________
@@ -111,24 +113,31 @@ app.get("/login", (req, res) => {
 
 // PAGE ROUTES 
 
+app.get('/logout', (req, res) => {
+  req.session.loggedin = false;
+  req.session.username = "";
+  res.render("landing", { loggedInBool : req.session.loggedin,
+    username : req.session.username});
+});
+
 app.get('/search', (req, res) => {
   res.render("search", { loggedInBool : req.session.loggedin,
-                         username : req.session.username});
+    username : req.session.username});
 });
 
 app.get('/loginPage', (req, res) => {
   res.render("login", { loggedInBool : req.session.loggedin,
-                          username : req.session.username });
+    username : req.session.username});
 });
 
 app.get('/register', (req, res) => {
   res.render("register", { loggedInBool : req.session.loggedin,
-                          username : req.session.username });
+    username : req.session.username});
 });
 
 app.get('/databaseTest', (req, res) => {
   res.render("databaseTest", { loggedInBool : req.session.loggedin,
-                              username : req.session.username });
+    username : req.session.username});
 });
 
 //-------- \/ Login Needed Area \/------------//
@@ -137,7 +146,7 @@ app.get('/databaseTest', (req, res) => {
 app.get('/welcome', isLoggedIn, (req, res) => {
   console.log("Welcome");
   res.render("welcome", { loggedInBool : req.session.loggedin,
-                          username : req.session.username });  
+    username : req.session.username});
 });
 
 

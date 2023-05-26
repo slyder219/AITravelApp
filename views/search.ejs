@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/bulma.cs">
+    <link rel="stylesheet" href="styles/bulma.css">
     <title>Flight Search</title>
 </head>
-<div class="header">
-    <% if (loggedInBool) { %>
-        <p> <%= username %>, you are logged in.</p>
-    <% } else { %>
-        <p> You are not logged in.</p>
-    <% } %> 
-</div>
+
 <body>
+    <%- include("partials/navbar") %>
     <h1 class="page-title">Flight Search</h1>
 
     <form id="flightForm" class="flight-form">

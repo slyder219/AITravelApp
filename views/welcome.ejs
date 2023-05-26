@@ -4,16 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to your Odyssey</title>
-  <link rel="stylesheet" href="styles/bulma.cs">
+  <link rel="stylesheet" href="styles/bulma.css">
 </head>
-<div class="header">
-  <% if (loggedInBool) { %>
-      <p> <%= username %>, you are logged in.</p>
-  <% } else { %>
-      <p> You are not logged in.</p>
-  <% } %> 
-</div>
+
 <body>
+  <%- include("partials/navbar") %>
   <div class="container">
     <h1 class="heading">Welcome to your Odyssey</h1>
   </div>

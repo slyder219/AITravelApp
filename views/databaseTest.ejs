@@ -4,16 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Database Test</title>
-        <link rel="stylesheet" href="styles/bulma.cs">
+        <link rel="stylesheet" href="styles/bulma.css">
     </head>
-    <div class="header">
-        <% if (loggedInBool) { %>
-            <p> <%= username %>, you are logged in.</p>
-        <% } else { %>
-            <p> You are not logged in.</p>
-        <% } %> 
-    </div>
+    
     <body>
+        <%- include("partials/navbar") %>
         <form id="testForm" class="form container">
             <label for="abr" class="label">City Abr</label>
             <input type="text" id="abr" class="input">
