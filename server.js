@@ -3,8 +3,11 @@ const path = require('path');
 const app = express();
 const Amadeus = require('amadeus');
 const { newDocument } = require('./controllers/newDocCont.js');
+const { handleRegister } = require('./controllers/newRegCont.js');
+const { checkLogin } = require('./controllers/checkLoginCont.js')
 
 
+//______________________________________________________________________________
 // set up Amadeus client credentials
 const key = process.env.AMADEUS_KEY;
 const secret = process.env.AMADEUS_SECRET;
@@ -24,12 +27,16 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/pages/landing.html");
 });
+//______________________________________________________________________________
 
+
+// TEST DB POST
 // Handle test post to database
 app.post("/testSave", (req, res) => {
   newDocument(req, res);
 });
 
+// AMADEUS GET AIRLINE NAME 
 // Define carrier code to business name route
 app.get('/airlines', (req, res) => {
   const carrierCode = req.query.carrierCode;
@@ -45,6 +52,7 @@ app.get('/airlines', (req, res) => {
 });
 });
 
+// AMADEUS GET FLIGHT RESULTS
 // Define flight search route 
 app.get("/flights", (req, res) => {
   const { origin, destination, date } = req.query;
@@ -68,6 +76,24 @@ app.get("/flights", (req, res) => {
     });
 });
 
+
+// POST REGISTERATION
+// Define register route
+app.post("/register", (req, res) => {
+  handleRegister(req, res);
+});
+
+// GET LOGIN CHECK 
+// Define login route
+app.get("/login", (req, res) => {
+  checkLogin(req, res);
+});
+
+
+
+
+
+//______________________________________________________________________________
 // Start the server
 // define port from local var
 const port = process.env.PORT || 3000;

@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 50
+      },
+      "passwordHash": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      }
+    },
+    "required": ["username", "passwordHash", "email"]
+  }
+  

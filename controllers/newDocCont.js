@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 const { validate } = require("jsonschema");
-const placeSchema = require("../references/places.json");
+const placeSchema = require("../schemas/places.json");
 
 const uri = process.env.MONGO_URI;
 // process.env.MONGO_URI;
@@ -36,7 +36,7 @@ async function newDocument(req, res) {
       console.log("Validation errors:");
       validationResult.errors.forEach(error => {
         console.log(`- ${error.stack}`);
-      res.josn({ message: "Validation errors" })
+      res.json({ message: "Validation errors" })
       });
 
     }
