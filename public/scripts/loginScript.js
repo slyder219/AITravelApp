@@ -17,7 +17,7 @@ async function handleSubmission(e){
         });
 
         form.reset()
-        if (response.success){} else {
+        if (response.success === true){} else {
             result.textContent = "Account not found";
             return 
         }
