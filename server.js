@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const app = express();
 const Amadeus = require('amadeus');
@@ -8,6 +9,16 @@ const { checkLogin } = require('./controllers/checkLoginCont.js')
 
 
 //______________________________________________________________________________
+
+
+// set up sessions
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+}));
+
+
 // set up Amadeus client credentials
 const key = process.env.AMADEUS_KEY;
 const secret = process.env.AMADEUS_SECRET;
@@ -19,6 +30,9 @@ const amadeus = new Amadeus({
 // Serve static files from directory
 app.use(express.static('public'));
 
+// ejs
+app.set('view engine', 'ejs');
+
 // set up body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,8 +41,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/pages/landing.html");
 });
-//______________________________________________________________________________
 
+//______________________________________________________________________________
 
 // TEST DB POST
 // Handle test post to database
@@ -88,12 +102,9 @@ app.post("/register", (req, res) => {
 app.get("/login", (req, res) => {
   checkLogin(req, res);
 });
-
-
-
-
-
 //______________________________________________________________________________
+
+
 // Start the server
 // define port from local var
 const port = process.env.PORT || 3000;

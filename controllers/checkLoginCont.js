@@ -33,7 +33,12 @@ async function checkLogin(req, res) {
         if(match) {
             // MATCH 
             console.log("Login Successful");
+            // __________________________________________
+            req.session.loggedin = true;
+            req.session.username = username;
+            // __________________________________________
             res.json({ message: "Login Successful" });
+
             return;
         } else{
             // NO MATCH 
