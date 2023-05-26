@@ -52,7 +52,7 @@ async function handleRegister(req, res) {
           validationResult.errors.forEach(error => {
             console.log(`- ${error.stack}`);
           });
-          res.json({ message: "Validation errors" });
+          res.json({ message: "Validation errors, likely Email format." });
         }
       });
   } catch (error) {

@@ -12,6 +12,9 @@ const { isLoggedIn } = require('./controllers/checkSessionCont.js');
 
 //______________________________________________________________________________
 
+// set up ejs 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 
@@ -41,7 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // root route
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/pages/landing.html");
+  res.render("landing");
 });
 
 //______________________________________________________________________________
@@ -105,12 +108,33 @@ app.get("/login", (req, res) => {
   checkLogin(req, res);
 });
 
+// PAGE ROUTES 
+
+app.get('/search', (req, res) => {
+  res.render("search");
+});
+
+app.get('/loginPage', (req, res) => {
+  res.render("login");
+});
+
+app.get('/register', (req, res) => {
+  res.render("register");
+});
+
+app.get('/databaseTest', (req, res) => {
+  res.render("databaseTest");
+});
+
 //-------- \/ Login Needed Area \/------------//
 
 // Welcome page route
 app.get('/welcome', isLoggedIn, (req, res) => {
-  res.sendFile(__dirname + "/public/pages/welcome.html");
+  console.log("Welcome");
+  res.render("welcome");  
 });
+
+
 
 
 //______________________________________________________________________________

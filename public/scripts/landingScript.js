@@ -12,17 +12,17 @@ testDatabase.addEventListener("click", handleTestDatabase);
 
 // functions
 function handleToSearch() {
-  window.location.href = "/pages/search.html";
+  window.location.href = "/search";
 }
 
 function handleTestDatabase() {
-  window.location.href = "/pages/databaseTest.html"
+  window.location.href = "/databaseTest"
 }
 
 async function handleLogin() {
-  window.location.href = "/pages/login.html";
+  window.location.href = "/loginPage";
 }
 
 function handleRegister() {
-  window.location.href = "/pages/register.html";
+  window.location.href = "/register";
 }

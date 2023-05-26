@@ -8,7 +8,7 @@ function isLoggedIn(req, res, next) {
         next();
     } else {
         console.log("Redirecting");
-        res.redirect("/pages/login.html")
+        res.redirect("loginPage")
     }
 }
 
