@@ -23,7 +23,7 @@ app.use(express.static('public'));
 
 // set up sessions
 app.use(session({
-  secret: "jhigyufgvhjbk", // process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
 }));
