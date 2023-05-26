@@ -13,6 +13,7 @@
 - Has user set up for register, login and logout
 - Manages passwords with bcrypt
 - Manages sessoin properties with express-sessions 
+- Uses ejs for dynamic contact, for example, renders an "is logged in" or "not" on every page render via passing a session property
 
 ### In the future:
 
