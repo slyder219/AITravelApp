@@ -38,8 +38,8 @@ async function checkLogin(req, res) {
             console.log("Session loggedin set to true");
             req.session.username = username;
             // __________________________________________
-            res.json({message: "Succesful Login"}) 
-            return;
+            console.log("Sending back true")
+            res.json({success: true});
         } else{
             // NO MATCH 
             console.log("Incorrect Password");
@@ -52,7 +52,7 @@ async function checkLogin(req, res) {
         // DOESNT EXIST
         console.log("Username does not exist");
         res.json({
-            message: "Username does not exist"
+            success: false,
         });
         return;
     }

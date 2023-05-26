@@ -2,13 +2,21 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const app = express();
+
 const Amadeus = require('amadeus');
+
 const { newDocument } = require('./controllers/newDocCont.js');
 const { handleRegister } = require('./controllers/newRegCont.js');
 const { checkLogin } = require('./controllers/checkLoginCont.js')
-
+const { isLoggedIn } = require('./controllers/checkSessionCont.js');
 
 //______________________________________________________________________________
+
+
+
+
+// Serve static files from directory
+app.use(express.static('public'));
 
 // set up sessions
 app.use(session({
@@ -26,12 +34,6 @@ const amadeus = new Amadeus({
   clientSecret: secret,
 });
 
-// Serve static files from directory
-// app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'public')));
-
-// ejs
-app.set('view engine', 'ejs');
 
 // set up body parser
 app.use(express.json());
@@ -103,7 +105,12 @@ app.get("/login", (req, res) => {
   checkLogin(req, res);
 });
 
+//-------- \/ Login Needed Area \/------------//
 
+// Welcome page route
+app.get('/welcome', isLoggedIn, (req, res) => {
+  res.sendFile(__dirname + "/public/pages/welcome.html");
+});
 
 
 //______________________________________________________________________________
