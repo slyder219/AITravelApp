@@ -13,9 +13,11 @@ form.addEventListener('submit', async (e) => {
             method: 'GET'
         });
 
-        // const data = await response.json();
-        // result.textContent = data.message;
-        // form.reset()
+        const data = await response.json();
+
+        
+        result.textContent = data.message;
+        form.reset()
 
     } catch (error) {
         console.error('Error:', error);

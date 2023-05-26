@@ -10,10 +10,9 @@ const { checkLogin } = require('./controllers/checkLoginCont.js')
 
 //______________________________________________________________________________
 
-
 // set up sessions
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: "jhigyufgvhjbk", // process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
 }));
@@ -28,7 +27,8 @@ const amadeus = new Amadeus({
 });
 
 // Serve static files from directory
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ejs
 app.set('view engine', 'ejs');

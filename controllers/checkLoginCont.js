@@ -38,8 +38,7 @@ async function checkLogin(req, res) {
             console.log("Session loggedin set to true");
             req.session.username = username;
             // __________________________________________
-            res.render("welcome");
-
+            res.json({message: "Succesful Login"}) 
             return;
         } else{
             // NO MATCH 

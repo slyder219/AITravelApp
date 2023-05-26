@@ -19,7 +19,7 @@ function handleTestDatabase() {
   window.location.href = "/pages/databaseTest.html"
 }
 
-function handleLogin() {
+async function handleLogin() {
   window.location.href = "/pages/login.html";
 }
 
