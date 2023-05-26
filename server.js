@@ -44,7 +44,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // root route
 app.get("/", (req, res) => {
-  res.render("landing");
+  res.render("landing", { loggedInBool : req.session.loggedin,
+                          username : req.session.username })
 });
 
 //______________________________________________________________________________
@@ -111,19 +112,23 @@ app.get("/login", (req, res) => {
 // PAGE ROUTES 
 
 app.get('/search', (req, res) => {
-  res.render("search");
+  res.render("search", { loggedInBool : req.session.loggedin,
+                         username : req.session.username});
 });
 
 app.get('/loginPage', (req, res) => {
-  res.render("login");
+  res.render("login", { loggedInBool : req.session.loggedin,
+                          username : req.session.username });
 });
 
 app.get('/register', (req, res) => {
-  res.render("register");
+  res.render("register", { loggedInBool : req.session.loggedin,
+                          username : req.session.username });
 });
 
 app.get('/databaseTest', (req, res) => {
-  res.render("databaseTest");
+  res.render("databaseTest", { loggedInBool : req.session.loggedin,
+                              username : req.session.username });
 });
 
 //-------- \/ Login Needed Area \/------------//
@@ -131,7 +136,8 @@ app.get('/databaseTest', (req, res) => {
 // Welcome page route
 app.get('/welcome', isLoggedIn, (req, res) => {
   console.log("Welcome");
-  res.render("welcome");  
+  res.render("welcome", { loggedInBool : req.session.loggedin,
+                          username : req.session.username });  
 });
 
 

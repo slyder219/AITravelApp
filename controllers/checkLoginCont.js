@@ -17,10 +17,6 @@ async function checkLogin(req, res) {
     console.log("Connected");
 
 
-    // username: MxAdmin, password: feff
-    // Connected
-    // Username does not exist
-    // Client closed
 
     // query users with the username
     const query = { username: username };

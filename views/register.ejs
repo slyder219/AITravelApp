@@ -5,6 +5,13 @@
     <title>Register</title>
     <link rel="stylesheet" href="styles/registerStyles.css">
 </head>
+<div class="header">
+    <% if (loggedInBool) { %>
+        <p> <%= username %>, you are logged in.</p>
+    <% } else { %>
+        <p> You are not logged in.</p>
+    <% } %> 
+</div>
 <body>
     <form id="registerForm" class="form container">
         <label for="username" class="label">Username</label>

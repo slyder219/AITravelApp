@@ -1,6 +1,5 @@
 
 
-
 function isLoggedIn(req, res, next) {
     const holder = req.session.loggedin;
     if (holder) {

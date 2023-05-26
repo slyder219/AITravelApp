@@ -2,22 +2,25 @@
 const toSearch = document.getElementById("toSearch");
 const loginButton = document.getElementById("login");
 const registerButton = document.getElementById("register");
-const testDatabase = document.getElementById("testDatabase");
+const testDBButton = document.getElementById("testDatabase");
 
 // event listeners
 toSearch.addEventListener("click", handleToSearch);
+testDBButton.addEventListener("click", dbHandler);
 loginButton.addEventListener("click", handleLogin);
 registerButton.addEventListener("click", handleRegister);
-testDatabase.addEventListener("click", handleTestDatabase);
 
 // functions
+
+function dbHandler() {
+  window.location.href = "/databaseTest";
+}
+
 function handleToSearch() {
   window.location.href = "/search";
 }
 
-function handleTestDatabase() {
-  window.location.href = "/databaseTest"
-}
+
 
 async function handleLogin() {
   window.location.href = "/loginPage";

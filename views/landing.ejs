@@ -6,15 +6,26 @@
     <link rel="stylesheet" href="styles/landingStyles.css">
     <title>Landing</title>
 </head>
+<div class="header">
+    <% if (loggedInBool) { %>
+        <p> <%= username %>, you are logged in.</p>
+    <% } else { %>
+        <p> You are not logged in.</p>
+    <% } %> 
+</div>
 <body>
     <div class="container">
         <h1>Begin Your Odyssey</h1>
         <button id="toSearch">Search</button>
+        <button id="testDatabase">Test Database</button>
     </div>
     <div class='container'>
+        <% if (loggedInBool) { %>
+        <% } else { %>
         <button id='login'>Login</button>
         <button id="register">Register</button>
-        <button id="testDatabase">Test Database</button>
+        <% } %> 
+
     </div>
 
     <script src="scripts/landingScript.js"></script>

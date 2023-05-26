@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="styles/searchStyles.css">
     <title>Flight Search</title>
 </head>
+<div class="header">
+    <% if (loggedInBool) { %>
+        <p> <%= username %>, you are logged in.</p>
+    <% } else { %>
+        <p> You are not logged in.</p>
+    <% } %> 
+</div>
 <body>
     <h1 class="page-title">Flight Search</h1>
 
