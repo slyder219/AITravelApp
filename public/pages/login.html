@@ -3,22 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
+        <link rel="stylesheet" href="../styles/loginStyles.css">
     </head>
 
     <body>
-        <form id="loginForm" class="form">
+        <form id="loginForm" class="form container">
 
-            <label for="username">Username</label>
-            <input id="username" type="text">
+            <label for="username" class="label">Username</label>
+            <input id="username" type="text" class="input">
 
-            <label for="password">Password</label>
-            <input id="password" type="password">
+            <label for="password" class="label">Password</label>
+            <input id="password" type="password" class="input">
 
-            <button type="submit" id="submit">Login</button>
-            <a href="register.html">Register</a>
+            <button type="submit" id="submit" class="button">Login</button>
+            <a href="register.html" class="link">Register</a>
 
         </form>
-        <p id="result">Result</p>
+        <p id="result" class="result form container">Result</p>
 
         <script src="../scripts/loginScript.js"></script>
     </body>
