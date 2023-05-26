@@ -38,13 +38,17 @@ async function checkLogin(req, res) {
         } else{
             // NO MATCH 
             console.log("Incorrect Password");
-            res.json({ message: "Incorrect Password" });
+            res.json({
+                message: "Incorrect Password"
+            });
             return;
         }
     } else {
         // DOESNT EXIST
         console.log("Username does not exist");
-        res.json({ message: "Username does not exist" });
+        res.json({
+            message: "Username does not exist"
+        });
         return;
     }
 

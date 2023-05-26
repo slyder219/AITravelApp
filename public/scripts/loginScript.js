@@ -2,6 +2,7 @@ const form = document.getElementById('loginForm');
 const result = document.getElementById('result');
 
 form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent form submission
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;

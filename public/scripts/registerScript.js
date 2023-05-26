@@ -15,7 +15,7 @@ form.addEventListener('submit', async (e) => {
             method: 'POST'
         });
 
-        const data = await response;
+        const data = await response.json();
 
         result.textContent = data.message;
 
