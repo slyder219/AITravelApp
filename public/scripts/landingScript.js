@@ -20,7 +20,7 @@ function handleTestDatabase() {
 }
 
 function handleLogin() {
-
+  window.location.href = "/pages/login.html";
 }
 
 function handleRegister() {
