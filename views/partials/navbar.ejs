@@ -1,30 +1,51 @@
-<nav class="navbar has-shadow is-info" role="navigation" aria-label="main navigation">
+<style>
+  .big-text {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    padding: 2rem;
+    color: white;
+  }
+  .cursive{
+    font-family: 'Brush Script MT', cursive;
+  }
+  .modernFont{
+    font-family: 'Tahoma', sans-serif;
+  }
+  .navColor{
+    background-color:paleturquoise;
+  }
+</style>
+
+
+<nav class="navbar has-shadow navColor" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <% if (loggedInBool) { %>
           <a class="navbar-item" href="/welcome">
             <% } else { %>
             <a class="navbar-item" href="/">
                 <% } %>
-            <h1 class="title py-3">Odyssey</h1>
+            <h1 class="py-3 big-text cursive">Odyssey</h1>
           </a>
         </div>
       
         <div class="navbar-menu">
           <div class="navbar-start">
             <% if (loggedInBool) { %>
-            <a class="navbar-item" href="/logout">Logout</a>
+            <a class="navbar-item modernFont" href="/logout">Logout</a>
             <% } else { %>
-            <a class="navbar-item" href='/loginPage'>Login</a>
-            <a class="navbar-item" href="/register">Register</a>
+            <a class="navbar-item modernFont" href='/loginPage'>Login</a>
+            <a class="navbar-item modernFont" href="/register">Register</a>
             <% } %>
-            <a class="navbar-item" href="/search">Search</a>
-            <a class="navbar-item" href="/databaseTest">To Database</a>
+            <a class="navbar-item modernFont" href="/search">Search</a>
+            <a class="navbar-item modernFont" href="/databaseTest">To Database</a>
           </div>
           <div class="navbar-end">
             <% if (loggedInBool) { %>
-            <span class="navbar-item">Welcome, <%= username %> </span>
+            <span class="navbar-item modernFont">Welcome, <%= username %> </span>
             <% } else { %>
-            <span class="navbar-item">Not logged in</span>
+            <span class="navbar-item modernFont px-3">Not logged in</span>
             <% } %> 
           </div>
         </div>

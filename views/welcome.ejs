@@ -5,12 +5,34 @@
 
   <title>Welcome to your Odyssey</title>
 
-</head>
+  <!-- Set up style and padding to use a photo as the background. afterward Under navbar, requires:-->
+  <!-- <div class="photo-background" style="background-image: url('images/sky.jpg');"></div> -->
+
+  <%- include("partials/photoBackground.ejs") %> 
+  
+  <style>
+    .blurred{
+        filter: blur(3px); 
+    }
+ </style>
 
 <body>
-  <%- include("partials/navbar") %>
-  <div class="container">
-    <h1 class="heading">Welcome to your Odyssey</h1>
-  </div>
+
+  <%- include("partials/navbar") %> 
+
+  <!-- Specify the path to the photo relative to the public folder -->
+  <div class="photo-background blurred" style="background-image: url('images/jungle.jpg');"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content has-text-white">
+        <!-- Add your content here -->
+        <h1 class="title">Welcome to your Odyssey, <%= username %> </h1>
+        <p>Content...</p>
+      </div>
+    </div>
+  </section>
+
+
 </body>
 </html>

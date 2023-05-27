@@ -8,23 +8,23 @@
 
 <body>
     <%- include("partials/navbar") %>
-    <h1 class="page-title">Flight Search</h1>
+    <h1 class="title is-1">Flight Search</h1>
 
     <form id="flightForm" class="flight-form">
-        <label for="origin">Origin ( Ex: NYC ):</label>
-        <input type="text" id="origin" class="form-input" required>
+        <label for="origin" class="label">Origin (Ex: NYC):</label>
+        <input type="text" id="origin" class="input" required>
 
-        <label for="destination">Destination ( Ex: LAX ):</label>
-        <input type="text" id="destination" class="form-input" required>
+        <label for="destination" class="label">Destination (Ex: LAX):</label>
+        <input type="text" id="destination" class="input" required>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" class="form-input" required>
+        <label for="date" class="label">Date:</label>
+        <input type="date" id="date" class="input" required>
 
-        <button type="submit" class="search-button">Search Flights</button>
+        <button type="submit" class="button is-primary">Search Flights</button>
     </form>
 
     <div id="flightContainer" class="flight-container">
-        <h1 class="container-title"></h1>
+        <h1 class="title is-3 container-title"></h1>
     </div>
 
     <script src="scripts/searchScript.js"></script>

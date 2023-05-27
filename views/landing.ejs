@@ -5,26 +5,37 @@
     <%- include("partials/head") %>
 
     <title>Landing</title>
+
+    <!-- Set up style and padding to use a photo as the background. afterward, requires:-->
+    <!-- <div class="photo-background" style="background-image: url('images/sky.jpg');"></div> -->
+
+     <%- include("partials/photoBackground.ejs") %> 
+
+     <style>
+        .blurred{
+            filter: blur(3px); 
+        }
+     </style>
+
 </head>
 
 <body>
     
     <%- include("partials/navbar") %>
 
-      
-    <div class="container">
-        <h1>Begin Your Odyssey</h1>
-        <button class="button" id="toSearch">Search</button>
-        <button class="button" id="testDatabase">Test Database</button>
-    </div>
-    <div class='container'>
-        <% if (loggedInBool) { %>
-        <% } else { %>
-        <button class="button" id='login'>Login</button>
-        <button class="button" id="register">Register</button>
-        <% } %> 
+    <div class="photo-background blurred" style="background-image: url('images/maps.jpg');"></div>
 
-    </div>
+      
+    <section class="section">
+        <div class="container">
+          <div class="content">
+            <!-- Add your content here -->
+            <h1 class="title has-text-white">Welcome to Odyssey</h1>
+            <h1 class="title has-text-white">Please <a class="has-text-primary" href="loginPage">login</a> or <a class="has-text-primary" href="/register">register</a> to get started.</h1>
+          </div>
+        </div>
+      </section>
+    
 
     <script src="scripts/landingScript.js"></script>
 </body>
