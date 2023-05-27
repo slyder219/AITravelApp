@@ -17,16 +17,19 @@ async function handleSubmission(e){
         });
 
         form.reset()
-        if (response.success === true){} else {
-            result.textContent = "Account not found";
-            return 
-        }
+
+        const data = await response.json();
+
+        result.textContent = data.message;
+
+        if ( data.success === true ){
+            window.location.href = '/welcome';
+            return
+        } else { return } 
     } catch (error) {
         console.error('Error:', error);
         console.log(error)
         result.textContent = "An error occurred";
-    } finally {
-        window.location.href = '/welcome';
     }
     
 
