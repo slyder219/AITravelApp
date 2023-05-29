@@ -12,7 +12,7 @@ const { newDocument } = require('./controllers/newDocCont.js');
 const { handleRegister } = require('./controllers/newRegCont.js');
 const { checkLogin } = require('./controllers/checkLoginCont.js')
 // isLoggedIn continues the call if true and vis versa
-const { isLoggedIn, isLoggedOut } = require('./controllers/checkSessionCont.js')(app.locals.session);
+const { isLoggedIn, isLoggedOut, checkQuizComplete } = require('./controllers/checkSessionCont.js')(app.locals.session);
 
 //______________________________________________________________________________
 
@@ -157,10 +157,26 @@ app.get('/databaseTest', (req, res) => {
 //-------- \/ Login Needed Area \/------------//
 // All page routes below should require loggedin = true 
 
-// Welcome page route ( Different that normal landing page that those who aren't logged in see)
-app.get('/welcome', isLoggedIn, (req, res) => {
-  res.render("welcome", { loggedInBool : req.session.loggedin,
-    username : req.session.username});
+
+
+// Welcome page route for new accounts ( Different that normal landing page that those who aren't logged in see)
+// 
+const questions = require("./models/questions.js")
+app.get('/welcome', isLoggedIn, checkQuizComplete, (req, res) => {
+  const quizComplete = req.session.quizCompleted;
+  if (!quizComplete) {
+    res.render("welcome", {
+      loggedInBool : req.session.loggedin,
+      username : req.session.username,
+      questions : questions
+    })
+  } else {
+    res.render("welcome", { 
+      loggedInBool : req.session.loggedin,
+      username : req.session.username
+    });
+  }
+  
 });
 
 

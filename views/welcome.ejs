@@ -10,11 +10,15 @@
 
   <%- include("partials/photoBackground.ejs") %> 
   
+  <!-- Blurs background image -->
   <style>
     .blurred{
         filter: blur(3px); 
     }
  </style>
+
+<%- include("partials/slider.ejs") %>
+
 
 <body>
 
@@ -26,13 +30,48 @@
   <section class="section">
     <div class="container">
       <div class="content has-text-white">
-        <!-- Add your content here -->
+        <!-- content here -->
         <h1 class="title has-text-white">Welcome to your Odyssey, <%= username %> </h1>
-        <p>Content...</p>
+
+        <div style="height: 50px"></div>
+
+        <!-- The 5 personality questions, \/ (just ex quesiton for now) -->
+        <!-- When rendered, this page is fed an array of the 5 questions-->
+        
+
+          <!-- if user hasn't completed survey yet, this ejs will be fed "questions"-->
+        <% if (typeof questions !== 'undefined' && questions.length > 0) { %>
+          
+          <h1 class="title has-text-white">Answer 5 quick questions to see your first peronally curated trip!</h1>
+
+          <form id="personalityForm"></form>
+          
+          <!-- Will create all the quesiton via the quetion array-->
+            <% questions.forEach(function(question, index) { %> <!-- For Loop-->
+
+              <div class="question">
+                <label class="px-10" style="display: block;" for="q<%= index + 1 %>"><%= question %></label>
+                <input class="custom-slider" style="display: block;" type="range" id="q<%= index + 1 %>" name="question<%= index + 1 %>" min="1" max="5">
+              </div>
+
+              <div style="height: 20px;"></div>
+
+            <% }); %><!-- End For Loop-->
+
+            <button type="submit" class="button is-primary" id="submitPersonality">Submit</button>
+
+          </form>
+
+        <% } %> <!-- Can add an else here later for users who already completed it-->
+          
+
+
       </div>
     </div>
   </section>
 
+
+    <script src="scripts/welcomeQuizScript.js"></script>
 
 </body>
 </html>

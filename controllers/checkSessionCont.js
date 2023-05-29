@@ -1,20 +1,14 @@
-9// express
-const express = require('express');
-const app = express();
-// session
-const session = require('express-session');
-// path 
-const path = require('path');
-// set up sessions
-app.use(session({
-    secret: process.env.SESSION_SECRET || "buftycgvgvycgvhbi",
-    resave: false,
-    saveUninitialized: false,
-  }));
+// Database 
+const { MongoClient } = require("mongodb");
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
 
-// Two function in this file. First checks for logged in, continues if so, redirects if not.
-// Second checks for logged OUT and CONTINUES if so, redirects to Welcome is not. This prefaces
-//  the landing page 
+// 3/4 functions in this file but just two types. First two check if user is logged in. 
+//  There are two for this because sometimes we want to redirect when logged in, and
+//  sometimes we want to redirect when logged out.
+// The other 2 check if the user has completed the 5-questions personality quiz.
+
+// -----------------------------------------------------------------------
 
 // Whenever called this function should check first if user session exists,
 //  if it doesn't -> straight to login page. If it does, check if 
@@ -63,7 +57,46 @@ function isLoggedOut(session){
 }
 
 
+function checkQuizComplete(session) {
+    return async function (req, res, next) {
+        console.log("checkQuizComplete called");
+      if (typeof req.session.loggedin == "undefined" || !req.session.loggedin) {
+        return next(); // Pass to the next middleware
+      }
+  
+      console.log("Starting DB");
+      client.connect();
+      const database = client.db("Odyssey");
+      const collection = database.collection("users");
+      console.log('Connected');
+  
+      const username = req.session.username;
+      const query = { username: username };
+      
+      console.log(`Username: ${username}`);
+      const user = await collection.findOne(query);
+
+      console.log(`t/f: ${user.quizCompleted}`);
+
+      if (user.quizCompleted == "false" || typeof user.quizCompleted == "undefined" || user.quizCompleted == false) {
+        console.log("Quiz not completed");
+        req.session.quizCompleted = false;
+        return next();        
+      } else {
+        console.log("Quiz Completed");
+        req.session.quizCompleted = true;
+        return next();
+      }
+
+      client.close();
+    };
+  }
+  
+  
+
+
 module.exports = (session) => ({
     isLoggedIn: isLoggedIn(session),
-    isLoggedOut: isLoggedOut(session)
+    isLoggedOut: isLoggedOut(session),
+    checkQuizComplete: checkQuizComplete(session)
   });
