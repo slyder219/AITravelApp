@@ -1,77 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <%- include("partials/head") %>
 
   <title>Welcome to your Odyssey</title>
 
-  <!-- Set up style and padding to use a photo as the background. afterward Under navbar, requires:-->
-  <!-- <div class="photo-background" style="background-image: url('images/sky.jpg');"></div> -->
+  <!-- styles the content like cards, in this case, the questions -->
+  <%- include("partials/materialContentStyle") %>
 
-  <%- include("partials/photoBackground.ejs") %> 
-  
-  <!-- Blurs background image -->
-  <style>
-    .blurred{
-        filter: blur(3px); 
-    }
- </style>
-
-<%- include("partials/slider.ejs") %>
+  <!-- styles the input sliders -->
+  <%- include("partials/slider.ejs") %>
 
 
-<body>
+  <body>
 
-  <%- include("partials/navbar") %> 
+    <!-- always include the navbar -->
+    <%- include("partials/navbar") %> 
 
-  <!-- Specify the path to the photo relative to the public folder -->
-  <div class="photo-background blurred" style="background-image: url('images/jungle.jpg');"></div>
+      <section class="color1">
+          <h1 class="title has-text-white">Welcome to your Odyssey, <%= username %> </h1>
+      </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="content has-text-white">
-        <!-- content here -->
-        <h1 class="title has-text-white">Welcome to your Odyssey, <%= username %> </h1>
+          <!-- if user hasn't completed the survey yet, this ejs will be fed "questions"-->
+          <% if (typeof questions !== 'undefined' && questions.length > 0) { %>
+          <!-- if it is fed "question" the above if will be true the below questions will render -->
 
-        <div style="height: 50px"></div>
+          <!-- title -->
+            <section class="color2">
+              <h1 class="title has-text-white">Answer 5 quick questions to see your first peronally curated trip!</h1>
+            </section>
 
-        <!-- The 5 personality questions, \/ (just ex quesiton for now) -->
-        <!-- When rendered, this page is fed an array of the 5 questions-->
-        
+            <!-- start form -->
+            <form id="personalityForm"></form>  
+            <!-- Will create all the quesiton via the quetion array-->
+              <% questions.forEach(function(question, index) { %> <!-- For Loop through the array -->
+                <section class="color<%= index +1 %>">
+                    <label class="title has-text-white px-10" style="display: block;" for="q<%= index + 1 %>"><%= question %></label>
+                    <input class="custom-slider" style="display: block;" type="range" id="q<%= index + 1 %>" name="question<%= index + 1 %>" min="1" max="5">
+                  <div style="height: 20px;"></div>
+                </section>
+              <% }); %><!-- End For Loop-->
+              
+              <!-- submit button-->
+              <section class="color2">
+                <button type="submit" class="button is-primary" id="submitPersonality">Submit</button>
+              </section>
 
-          <!-- if user hasn't completed survey yet, this ejs will be fed "questions"-->
-        <% if (typeof questions !== 'undefined' && questions.length > 0) { %>
-          
-          <h1 class="title has-text-white">Answer 5 quick questions to see your first peronally curated trip!</h1>
+            </form> <!-- end survey form -->
 
-          <form id="personalityForm"></form>
-          
-          <!-- Will create all the quesiton via the quetion array-->
-            <% questions.forEach(function(question, index) { %> <!-- For Loop-->
+          <% } %> <!-- End If. Can add an else here later for users who already completed it-->
+                  <!-- I'd imagine maybe their personality profile will show up and they can -->
+                  <!--  edit it if any of thier answers have changed.                        -->
+            
+      <script src="scripts/welcomeQuizScript.js"></script>
 
-              <div class="question">
-                <label class="px-10" style="display: block;" for="q<%= index + 1 %>"><%= question %></label>
-                <input class="custom-slider" style="display: block;" type="range" id="q<%= index + 1 %>" name="question<%= index + 1 %>" min="1" max="5">
-              </div>
-
-              <div style="height: 20px;"></div>
-
-            <% }); %><!-- End For Loop-->
-
-            <button type="submit" class="button is-primary" id="submitPersonality">Submit</button>
-
-          </form>
-
-        <% } %> <!-- Can add an else here later for users who already completed it-->
-          
-
-
-      </div>
-    </div>
-  </section>
-
-
-    <script src="scripts/welcomeQuizScript.js"></script>
-
-</body>
+  </body>
 </html>
