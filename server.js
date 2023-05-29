@@ -1,16 +1,18 @@
+9// express
 const express = require('express');
-const session = require('express-session');
-const path = require('path');
 const app = express();
-
+// session
+const session = require('express-session');
+// path 
+const path = require('path');
+// amadeus ( flights API )
 const Amadeus = require('amadeus');
-
+// internal midware functions 
 const { newDocument } = require('./controllers/newDocCont.js');
 const { handleRegister } = require('./controllers/newRegCont.js');
 const { checkLogin } = require('./controllers/checkLoginCont.js')
-const { isLoggedIn } = require('./controllers/checkSessionCont.js');
-
-
+// isLoggedIn continues the call if true and vis versa
+const { isLoggedIn, isLoggedOut } = require('./controllers/checkSessionCont.js')(app.locals.session);
 
 //______________________________________________________________________________
 
@@ -18,14 +20,12 @@ const { isLoggedIn } = require('./controllers/checkSessionCont.js');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
-
 // Serve static files from directory
 app.use(express.static('public'));
 
 // set up sessions
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || "buftycgvgvycgvhbi",
   resave: false,
   saveUninitialized: false,
 }));
@@ -44,8 +44,9 @@ const amadeus = new Amadeus({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// LANDING FOR ALL NEW VISITS. MAIN ROUTE 
 // root route
-app.get("/", (req, res) => {
+app.get("/", isLoggedOut, (req, res) => {
   res.render("landing", { loggedInBool : req.session.loggedin,
                           username : req.session.username});
 });
@@ -54,12 +55,15 @@ app.get("/", (req, res) => {
 
 // TEST DB POST
 // Handle test post to database
+//  ! Currently we have a 'Test Database' function on the live site. Was
+//   used to test the database connection.
 app.post("/testSave", (req, res) => {
   newDocument(req, res);
 });
 
 // AMADEUS GET AIRLINE NAME 
 // Define carrier code to business name route
+//  ! Needs to be moved to contollers and cleaned up. 
 app.get('/airlines', (req, res) => {
   const carrierCode = req.query.carrierCode;
   amadeus.referenceData.airlines.get({
@@ -76,6 +80,8 @@ app.get('/airlines', (req, res) => {
 
 // AMADEUS GET FLIGHT RESULTS
 // Define flight search route 
+//  ! This needs to be moved to controllers and cleaned up, isn't even 
+//    very relevant for the mvp 
 app.get("/flights", (req, res) => {
   const { origin, destination, date } = req.query;
 
@@ -100,19 +106,23 @@ app.get("/flights", (req, res) => {
 
 
 // POST REGISTERATION
-// Define register route
+// Define register route ( Register pressed )
 app.post("/register", (req, res) => {
   handleRegister(req, res);
 });
 
-// GET LOGIN CHECK 
+// GET LOGIN CHECK ( Login pressed )
 // Define login route
 app.get("/login", (req, res) => {
   checkLogin(req, res);
 });
 
-// PAGE ROUTES 
+// PAGE ROUTES ( "/" route is above. all other page routes should be here )
+//  ALL of these, when rendering a new page, need to pass info to the page: 
+//    { LoggedInBool : req.session.loggedin, username : req.session.username}
+//    ( The renders often use the username ) 
 
+// handle logout, return to landing page 
 app.get('/logout', (req, res) => {
   req.session.loggedin = false;
   req.session.username = "";
@@ -120,31 +130,35 @@ app.get('/logout', (req, res) => {
     username : req.session.username});
 });
 
+//  flight search page route, made for testing. probably not in mvp 
 app.get('/search', (req, res) => {
   res.render("search", { loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
+// go to Login Page
 app.get('/loginPage', (req, res) => {
   res.render("login", { loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
+// go to register page 
 app.get('/register', (req, res) => {
   res.render("register", { loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
+// go to database test page. just for DB testing. Not in mvp. 
 app.get('/databaseTest', (req, res) => {
   res.render("databaseTest", { loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
 //-------- \/ Login Needed Area \/------------//
+// All page routes below should require loggedin = true 
 
-// Welcome page route
+// Welcome page route ( Different that normal landing page that those who aren't logged in see)
 app.get('/welcome', isLoggedIn, (req, res) => {
-  console.log("Welcome");
   res.render("welcome", { loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
@@ -153,10 +167,12 @@ app.get('/welcome', isLoggedIn, (req, res) => {
 
 
 //______________________________________________________________________________
-
+//
+// This should stay at the bottom. 
+//______________________________________________________________________________
 
 // Start the server
-// define port from local var
+// define port from environment variable or 3000
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
