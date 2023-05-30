@@ -1,30 +1,69 @@
+
+<!------------------------------------------------------------------------------------------>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include("partials/head") %>
+    <head>
+      <%- include("partials/head") %>
 
-    <title>Register</title>
+      <title>Sign In</title>
 
-</head>
+      <%- include("partials/signInStyle", {
+        imagePath : "images/balloons2.jpg"
+      }) %>
 
-<body>
-    <%- include("partials/navbar") %>
 
-    <form id="registerForm" class="form container">
-        <label for="username" class="label">Username</label>
-        <input id="username" type="text" class="input" required>
+    </head>
 
-        <label for="email" class="label">Email</label>
-        <input id="email" type="email" class="input" required>
+    <body>
+      <div class="background-photo"></div>
+      <div class="container">
+        <div class="form-container container">
+          <h1 class="title is-size-2 has-text-primary">ODYSSEY</h1>
+          <p class="subtitle is-size-4 has-text-white">PLAN YOUR TRIP WITH<br>JUST A FEW CLICKS</p>
+          <form id="registerForm">
 
-        <label for="password" class="label">Password</label>
-        <input id="password" type="password" class="input" required>
+            <div class="field">
+              <label for="username" class="label has-text-white is-size-5">USERNAME</label>
+              <div class="control">
+                <input id="username" type="text" class="input is-rounded is-large" required>
+              </div>
+            </div>
 
-        <button type="submit" id="submit" class="button is-primary">Register</button>
-        <a href="/loginPage" class="link">Login</a>
-    </form>
-    <p id="result" class="result form container">Result</p>
+            <div class="field">
+                <label for="email" class="label has-text-white is-size-5">EMAIL</label>
+                <div class="control">
+                  <input id="email" type="email" class="input is-rounded is-large" required>
+                </div>
+              </div>
 
-    <script src="scripts/registerScript.js"></script>    
-</body>
-</html>
+
+            <div class="field">
+              <label for="password" class="label has-text-white is-size-5">PASSWORD</label>
+              <div class="control">
+                <input id="password" type="password" class="input is-rounded is-large" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <button type="submit" id="submit" class="button is-rounded is-primary is-size-4">LOGIN</button>        
+              </div>
+            </div>
+
+              <div class="field" id="result"></div>
+
+              <div class="field">
+                <p class="label has-text-white is-size-5">Have an account? <a href="/loginPage" class="link has-text-primary">Login Here</a></p>
+              </div>
+              
+           
+          </form>
+        </div>
+      </div>
+      <script src="scripts/registerScript.js"></script>    
+    </body>
+    
+    </html>
+
+

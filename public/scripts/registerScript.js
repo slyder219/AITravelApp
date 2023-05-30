@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
 
         const data = await response.json();
 
-        result.textContent = data.message;
+        result.innerHTML = `<p class="has-text-danger is-size-5">${data.message}</p>`;
 
         form.reset();
 

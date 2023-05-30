@@ -1,55 +1,25 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <!-- Partials stored in ./views/partials.-->
-    <%- include("partials/head") %>
+  
+  <%- include("partials/head") %>
 
-    <!-- Meta data to be added to all pages at some point-->
-    <!--  and fitted appropriately to each page-->
-    <meta name="description" content="Welcome to Odyssey! We take the research out of planning a trip by learning about you and curating unique, custom trips!">
-    <meta name="keywords" content="travel, Europe, Asia, backpacking, vacation">
-    <!----------------------------------------------------->
+  <meta name="description" content="Welcome to Odyssey! We take the research out of planning a trip by learning about you and curating unique, custom trips!">
+  <meta name="keywords" content="travel, Europe, Asia, backpacking, vacation">
+  
+  <title>Odyssey</title>
 
-    <title>Odyssey</title>
-
-    <!-- Set up style and padding to use a photo as the background. -->
-    <!--  afterward the 'include' statement, requires\/ -->
-    <!-- <div class="photo-background" style="background-image: url('images/sky.jpg');"></div> -->
-     <%- include("partials/photoBackground.ejs") %> 
-    <!------------------------------------------------------------------------------------------->
-
-     <style>
-        .blurred{
-            filter: blur(3px); 
-        }
-     </style>
-
+  <%- include("partials/signInStyle", {
+    imagePath : "images/balloons2.jpg"
+  }) %>
+  
 </head>
-
 <body>
-    
-  <!-- Navbar created with Bulma. If redesigned with Bootstrap, just change the partial itself-->
-  <!--  and leave the includes-->
-    <%- include("partials/navbar") %>
-
-
-    <div class="photo-background blurred" style="background-image: url('images/maps.jpg');"></div>
-
-      
-    <section class="section">
-        <div class="container">
-          <div class="content">
-            <!-- content here -->
-            <h1 class="title has-text-white">Welcome to Odyssey</h1>
-            <h1 class="title has-text-white">Please <a class="has-text-primary" href="loginPage">login</a> or <a class="has-text-primary" href="/register">register</a> to get started.</h1>
-
-
-          </div>
-        </div>
-      </section>
-    
-
-    <script src="scripts/landingScript.js"></script>
+  <div class="background-photo"></div>
+      <div class="container">
+        <h1 class="title is-size-1 has-text-white">Welcome to Odyssey</h1>
+        <h1 class="title has-text-white">Please <a class="has-text-primary" href="loginPage">login</a> or <a class="has-text-primary" href="/register">register</a> to get started.</h1>
+      </div>
+  <script src="scripts/landingScript.js"></script>
 </body>
 </html>

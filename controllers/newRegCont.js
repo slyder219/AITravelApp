@@ -37,7 +37,7 @@ async function handleRegister(req, res) {
           const existing = await collection.findOne(query);
           if (existing) {
             console.log("Username already exists");
-            res.json({ message: "Username already exists" });
+            res.json({ message: "Account already exists" });
             return;
           } else {
             console.log("Usernmame does not exist, moving on to saving newUser.");

@@ -10,7 +10,7 @@ const Amadeus = require('amadeus');
 // internal midware functions 
 const { newDocument } = require('./controllers/newDocCont.js');
 const { handleRegister } = require('./controllers/newRegCont.js');
-const { checkLogin } = require('./controllers/checkLoginCont.js')
+const { checkLogin } = require('./controllers/checkLoginCont.js');
 // isLoggedIn continues the call if true and vis versa
 const { isLoggedIn, isLoggedOut, checkQuizComplete } = require('./controllers/checkSessionCont.js')(app.locals.session);
 
@@ -30,7 +30,6 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-
 // set up Amadeus client credentials
 const key = process.env.AMADEUS_KEY;
 const secret = process.env.AMADEUS_SECRET;
@@ -38,7 +37,6 @@ const amadeus = new Amadeus({
   clientId: key,
   clientSecret: secret,
 });
-
 
 // set up body parser
 app.use(express.json());
@@ -127,31 +125,36 @@ app.get("/login", (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.loggedin = false;
   req.session.username = "";
-  res.render("landing", { loggedInBool : req.session.loggedin,
+  res.render("landing", { 
+    loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
 //  flight search page route, made for testing. probably not in mvp 
 app.get('/search', (req, res) => {
-  res.render("search", { loggedInBool : req.session.loggedin,
+  res.render("search", { 
+    loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
 // go to Login Page
 app.get('/loginPage', (req, res) => {
-  res.render("login", { loggedInBool : req.session.loggedin,
+  res.render("login", { 
+    loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
 // go to register page 
 app.get('/register', (req, res) => {
-  res.render("register", { loggedInBool : req.session.loggedin,
+  res.render("register", { 
+    loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
 // go to database test page. just for DB testing. Not in mvp. 
 app.get('/databaseTest', (req, res) => {
-  res.render("databaseTest", { loggedInBool : req.session.loggedin,
+  res.render("databaseTest", { 
+    loggedInBool : req.session.loggedin,
     username : req.session.username});
 });
 
@@ -159,10 +162,7 @@ app.get('/databaseTest', (req, res) => {
 //-------- \/ Login Needed Area \/------------//
 // All page routes below should require loggedin = true 
 
-
-
 // Welcome page route for new accounts ( Different that normal landing page that those who aren't logged in see)
-// 
 const questions = require("./models/questions.js")
 app.get('/welcome', isLoggedIn, checkQuizComplete, (req, res) => {
   const quizComplete = req.session.quizCompleted;
@@ -181,12 +181,9 @@ app.get('/welcome', isLoggedIn, checkQuizComplete, (req, res) => {
   
 });
 
-
-
-
 //______________________________________________________________________________
 //
-// This should stay at the bottom. 
+// This \/ should stay at the bottom. 
 //______________________________________________________________________________
 
 // Start the server
@@ -196,3 +193,7 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
+//______________________________________________________________________________
+//
+// This /\ should stay at the bottom. 
+//______________________________________________________________________________

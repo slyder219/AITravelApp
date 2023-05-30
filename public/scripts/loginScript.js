@@ -18,15 +18,21 @@ async function handleSubmission(e){
 
         const data = await response.json();
 
-        if ( data.success == true ){
+        const successBool = data.success;
+
+        if ( successBool == true ){
             window.location.href = '/welcome';
             return
-        } else { return } 
+        } else {
+            const resultDiv = document.getElementById('result');
+            const output = data.message;
+            resultDiv.innerHTML = `<p class="has-text-danger is-size-3">${output}</p>`;
+        }
     } catch (error) {
         console.error('Error:', error);
         console.log(error)
-        result.textContent = "An error occurred";
-    }
+        username.placeholder = 'Account Not Found';
+    };
     
 
 

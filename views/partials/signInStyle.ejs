@@ -1,5 +1,5 @@
 <style>
-  
+  /* This file does not have errors, vscode just doesn't like this ejs */
   body {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@
     left: 0;
     width: 100vw;
     height: 100vw;
-    background-image: url('images/balloons2.jpg');
+    background-image: url(<%= imagePath %>);
     background-size: cover;
     filter: blur(5px);
     z-index: -1;
@@ -26,6 +26,8 @@
     height: 100vh;
     z-index: 1;
     text-align: center;
+    max-width: 400px;
+    background-color: transparent;
   }
 
   .form-container {
@@ -34,8 +36,7 @@
     max-width: 400px;
   }
 
-  .form-container input[type="text"],
-  .form-container input[type="password"] {
+  input {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
   }

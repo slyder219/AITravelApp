@@ -5,7 +5,9 @@
 
       <title>Sign In</title>
 
-      <%- include("partials/signInStyle") %>
+      <%- include("partials/signInStyle", {
+        imagePath : "images/balloons2.jpg"
+      }) %>
 
 
     </head>
@@ -32,6 +34,9 @@
             <div class="field">
               <div class="control">
                 <button type="submit" id="submit" class="button is-rounded is-primary is-size-4">LOGIN</button>        
+              </div>
+              <div class="field" id="result">
+                
               </div>
               <div class="field">
                 <p class="label has-text-white is-size-5">No account? <a href="/register" class="link has-text-primary">Create one!</a></p>
