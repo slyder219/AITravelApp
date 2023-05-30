@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <%- include("partials/head") %>
+
+  <title>Welcome to your Odyssey</title>
+
+  <!-- styles the content like cards, in this case, the questions -->
+  <%- include("partials/materialContentStyle") %>
+
+  <!-- styles the input sliders -->
+  <%- include("partials/slider.ejs") %>
+
+
+  <body>
+
+    <!-- always include the navbar -->
+    <%- include("partials/navbar") %> 
+
+      <section class="color1">
+          <h1 class="title has-text-white">Welcome to your Odyssey, <%= username %> </h1>
+      </section>
+
+          <!-- if user hasn't completed the survey yet, this ejs will be fed "questions"-->
+          <% if (typeof questions !== 'undefined' && questions.length > 0) { %>
+          <!-- if it is fed "question" the above if will be true the below questions will render -->
+
+          <!-- title -->
+            <section class="color2">
+              <h1 class="title has-text-white">Answer 5 quick questions to see your first peronally curated trip!</h1>
+            </section>
+
+            <!-- start form -->
+            <form id="personalityForm"></form>  
+            <!-- Will create all the quesiton via the quetion array-->
+              <% questions.forEach(function(question, index) { %> <!-- For Loop through the array -->
+                <section class="color<%= index +1 %>">
+                    <label class="title has-text-white px-10" style="display: block;" for="q<%= index + 1 %>"><%= question %></label>
+                    <input class="custom-slider" style="display: block;" type="range" id="q<%= index + 1 %>" name="question<%= index + 1 %>" min="1" max="5">
+                  <div style="height: 20px;"></div>
+                </section>
+              <% }); %><!-- End For Loop-->
+              
+              <!-- submit button-->
+              <section class="color2">
+                <button type="submit" class="button is-primary" id="submitPersonality">Submit</button>
+              </section>
+
+            </form> <!-- end survey form -->
+
+          <% } %> <!-- End If. Can add an else here later for users who already completed it-->
+                  <!-- I'd imagine maybe their personality profile will show up and they can -->
+                  <!--  edit it if any of thier answers have changed.                        -->
+            
+      <script src="scripts/welcomeQuizScript.js"></script>
+
+  </body>
+</html>
