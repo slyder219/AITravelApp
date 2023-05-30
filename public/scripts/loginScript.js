@@ -1,8 +1,6 @@
 const form = document.getElementById('loginForm');
-const result = document.getElementById('result');
 
-form.addEventListener('submit', handleSubmission); 
-
+form.addEventListener('submit', handleSubmission);
 
 async function handleSubmission(e){
     e.preventDefault(); // Prevent form submission
@@ -20,9 +18,7 @@ async function handleSubmission(e){
 
         const data = await response.json();
 
-        result.textContent = data.message;
-
-        if ( data.success === true ){
+        if ( data.success == true ){
             window.location.href = '/welcome';
             return
         } else { return } 

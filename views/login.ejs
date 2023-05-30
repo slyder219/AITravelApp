@@ -3,39 +3,44 @@
     <head>
       <%- include("partials/head") %>
 
-        <title>Login</title>
+      <title>Sign In</title>
+
+      <%- include("partials/signInStyle") %>
+
 
     </head>
-  
-    <body>
-        <%- include("partials/navbar") %>
 
-          <form id="loginForm" class="form container">
+    <body>
+      <div class="background-photo"></div>
+      <div class="container">
+        <div class="form-container container">
+          <h1 class="title is-size-1 has-text-primary">ODYSSEY</h1>
+          <p class="subtitle is-size-3 has-text-white">PLAN YOUR TRIP WITH<br>JUST A FEW CLICKS</p>
+          <form id="loginForm">
             <div class="field">
-              <label for="username" class="label">Username</label>
+              <label for="username" class="label has-text-white is-size-4">USERNAME</label>
               <div class="control">
-                <input id="username" type="text" class="input" required>
+                <input id="username" type="text" class="input is-rounded is-large" required>
               </div>
             </div>
-          
             <div class="field">
-              <label for="password" class="label">Password</label>
+              <label for="password" class="label has-text-white is-size-4">PASSWORD</label>
               <div class="control">
-                <input id="password" type="password" class="input" required>
+                <input id="password" type="password" class="input is-rounded is-large" required>
               </div>
             </div>
-          
             <div class="field">
               <div class="control">
-                <button type="submit" id="submit" class="button is-primary">Login</button>
-                <a href="/register" class="link">Register</a>
+                <button type="submit" id="submit" class="button is-rounded is-primary is-size-4">LOGIN</button>        
+              </div>
+              <div class="field">
+                <p class="label has-text-white is-size-5">No account? <a href="/register" class="link has-text-primary">Create one!</a></p>
               </div>
             </div>
           </form>
-          
-          <p id="result" class="result form container">Result</p>
-          
-
-        <script src="scripts/loginScript.js"></script>
+        </div>
+      </div>
+      <script src="scripts/loginScript.js"></script>
     </body>
-</html>
+    
+    </html>

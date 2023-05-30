@@ -114,6 +114,7 @@ app.post("/register", (req, res) => {
 // GET LOGIN CHECK ( Login pressed )
 // Define login route
 app.get("/login", (req, res) => {
+  console.log("Login route hit");
   checkLogin(req, res);
 });
 
