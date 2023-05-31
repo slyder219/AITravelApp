@@ -17,5 +17,5 @@
 
 ### In the future:
 
-- Will have personality testing to develop ai itineraries 
+- Will have personality testing to develop itineraries 
 - Will look not awful 
