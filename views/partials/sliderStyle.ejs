@@ -1,0 +1,37 @@
+<style>
+input[type="range"]{
+  -webkit-appearance:none;
+  width:250px;
+  height:20px;
+  margin-top: 30px;
+  background: linear-gradient(to right, #38dcb0 0%, #23ea5b 100%);
+  background-size:250px 20px;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  outline: none;
+}
+
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+  background:#c0fdef;
+  position:relative;
+  z-index:3;
+  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-webkit-slider-thumb:after{
+  content:" ";
+  width:160px;
+  height:10px;
+  position:absolute;
+  z-index:1;
+  right:20px;
+  top:5px;
+  background: #36fdd2;
+  background: linear-gradient(to right, #88eefc 1%, #6cfdff 70%);
+}
+  </style>
